@@ -1,0 +1,6 @@
+{
+    "private": true,
+    "name": "chas-workspaces",
+    "workspaces": ["client", "server"],
+    "scripts": {}
+ }
