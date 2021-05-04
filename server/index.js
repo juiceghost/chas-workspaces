@@ -3,11 +3,15 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const cors = require("cors");
 
-var corsOptions = {
-    origin: "http://localhost:5000"
-  };
 
 const UserModel = require('./model/model');
+
+const port = process.env.PORT || '5000'
+
+var corsOptions = {
+  origin: `http://localhost:${port}`
+};
+
 
 mongoose.connect('mongodb://127.0.0.1:27017/passport-jwt', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
@@ -39,6 +43,6 @@ app.use(function(err, req, res, next) {
   res.json({ error: err });
 });
 
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log('Server started.')
 });
